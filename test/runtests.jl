@@ -30,5 +30,7 @@ srand(345678)
 for t in tests
     test_fn = "$t.jl"
     print_with_color(:green, "* $test_fn\n")
-    include(test_fn)
+    tt = @elapsed include(test_fn)
+    rss = Sys.maxrss()
+    @printf("* %s ran in %6.2f seconds, maxrss %7.2f MB\n\n", test_fn, tt, rss / 2^20)
 end
