@@ -31,6 +31,5 @@ for t in tests
     test_fn = "$t.jl"
     print_with_color(:green, "* $test_fn\n")
     tt = @elapsed include(test_fn)
-    rss = Sys.maxrss()
-    @printf("* %s ran in %6.2f seconds, maxrss %7.2f MB\n\n", test_fn, tt, rss / 2^20)
+    @printf("* %s ran in %6.2f seconds\n\n", test_fn, tt)
 end
