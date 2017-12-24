@@ -479,7 +479,7 @@ function _cwise_logpdf!(r::AbstractMatrix, d::AbstractMixtureModel, X)
         if d isa UnivariateMixture
             view(r,:,i) .= logpdf.(component(d, i), X)
         else
-            logpdf!(view(r,:,i), component(d, i), X)            
+            logpdf!(view(r,:,i), component(d, i), X)
         end
     end
     r
