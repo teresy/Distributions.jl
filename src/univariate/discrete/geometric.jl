@@ -130,7 +130,7 @@ function invlogccdf(d::Geometric{T}, lp::Real) where T<:Real
     elseif lp == zero(d.p)
         return zero(T)
     end
-    max(ceil(lp/log1p(-d.p)) - 1, zero(T))
+    max(cld(lp,log1p(-d.p)) - 1, zero(T))
 end
 
 function mgf(d::Geometric, t::Real)
